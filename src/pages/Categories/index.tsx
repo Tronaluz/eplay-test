@@ -1,10 +1,9 @@
-import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
 import Game from '../../models/Game'
-import resident from '../../assets/games/resident-evil-4.jpg'
-import diablo from '../../assets/games/Diablo.png'
-import starwars from '../../assets/games/StarWars.png'
-import zelda from '../../assets/games/zelda.png'
+import resident from '../../assets/images/ResidentEvil.png'
+import diablo from '../../assets/images/Diablo.png'
+import starwars from '../../assets/images/StarWars.png'
+import zelda from '../../assets/images/zelda.png'
 
 const promocoes: Game[] = [
   {
@@ -15,7 +14,7 @@ const promocoes: Game[] = [
     title: 'Resident Evil 4',
     system: 'Windows',
     infos: ['10%', 'R$ 250,00'],
-    image: 'resident'
+    image: resident
   },
   {
     id: 2,
@@ -25,7 +24,7 @@ const promocoes: Game[] = [
     title: 'Resident Evil 4',
     system: 'PS5',
     infos: ['5%', 'R$ 290,00'],
-    image: 'resident'
+    image: resident
   },
   {
     id: 3,
@@ -35,7 +34,7 @@ const promocoes: Game[] = [
     title: 'Resident Evil 4',
     system: 'Windows',
     infos: ['10%', 'R$ 250,00'],
-    image: 'resident'
+    image: resident
   },
   {
     id: 4,
@@ -45,7 +44,7 @@ const promocoes: Game[] = [
     title: 'Resident Evil 4',
     system: 'Windows',
     infos: ['10%', 'R$ 250,00'],
-    image: 'resident'
+    image: resident
   }
 ]
 
@@ -58,7 +57,7 @@ const emBreve: Game[] = [
     title: 'Diablo 4',
     system: 'Windows',
     infos: ['17/05'],
-    image: 'diablo'
+    image: diablo
   },
   {
     id: 6,
@@ -68,7 +67,7 @@ const emBreve: Game[] = [
     title: 'Star Wars',
     system: 'Windows',
     infos: ['17/05'],
-    image: 'starwars'
+    image: starwars
   },
   {
     id: 7,
@@ -78,7 +77,7 @@ const emBreve: Game[] = [
     title: 'Zelda',
     system: 'Windows',
     infos: ['17/05'],
-    image: 'zelda'
+    image: zelda
   },
   {
     id: 8,
@@ -88,16 +87,17 @@ const emBreve: Game[] = [
     title: 'Resident Evil 4',
     system: 'Nitendo Switch',
     infos: ['17/05'],
-    image: 'resident'
+    image: resident
   }
 ]
 
-const Home = () => (
+const Categories = () => (
   <>
-    <Banner />
-    <ProductsList games={promocoes} title="Promocoes" background="gray" />
-    <ProductsList games={emBreve} title="Em breve" background="black" />
+    <ProductsList games={promocoes} title="RPG" background="gray" />
+    <ProductsList games={emBreve} title="Acao" background="black" />
+    <ProductsList games={promocoes} title="Aventura" background="gray" />
+    <ProductsList games={emBreve} title="FPS" background="black" />
   </>
 )
 
-export default Home
+export default Categories
