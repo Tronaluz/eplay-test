@@ -82,6 +82,7 @@ export const {
   useGetSoonQuery,
   useGetOnSaleQuery,
   useGetActionGamesQuery,
+  useGetFightnGamesQuery,
   useGetSportGamesQuery,
   useGetSimulationGamesQuery,
   useGetRpgGamesQuery,

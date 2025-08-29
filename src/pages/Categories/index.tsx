@@ -1,17 +1,11 @@
 import ProductsList from '../../components/ProductsList'
-import resident from '../../assets/images/ResidentEvil.png'
-import diablo from '../../assets/images/Diablo.png'
-import starwars from '../../assets/images/StarWars.png'
-import zelda from '../../assets/images/zelda.png'
-import { Game } from '../Home'
-import { useEffect, useState } from 'react'
 
 import {
   useGetActionGamesQuery,
-  useGetSportGamesQuery,
-  useGetSimulationGamesQuery,
   useGetFightnGamesQuery,
-  useGetRpgGamesQuery
+  useGetRpgGamesQuery,
+  useGetSimulationGamesQuery,
+  useGetSportGamesQuery
 } from '../../services/api'
 
 const Categories = () => {
