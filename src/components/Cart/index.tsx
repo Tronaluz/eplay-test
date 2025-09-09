@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 import Button from '../Button'
 import Tag from '../Tag'
+
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
+
 import * as S from './styles'
 import { parseToBrl } from '../../utils'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -16,13 +21,20 @@ const Cart = () => {
   }
 
   const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.prices.current!)
+    return items.reduce((accumulator, currentItem) => {
+      if (currentItem.prices.current) {
+        return (accumulator += currentItem.prices.current)
+      }
+      return 0
     }, 0)
   }
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  const goToCheckout = () => {
+
   }
 
   return (
