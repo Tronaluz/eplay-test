@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 
 import Button from '../../components/Button'
 import Card from '../../components/Cards'
@@ -11,11 +13,12 @@ import creditCard from '../../assets/images/cartao de credito.png'
 import { usePurchaseMutation } from '../../services/api'
 
 import * as S from './styles'
+import { RootReducer } from '../../store'
 
 const Checkout = () => {
   const [payWithCard, setPayWithCard] = useState(false)
-
   const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const form = useFormik({
     initialValues: {
@@ -115,20 +118,16 @@ const Checkout = () => {
     }
   })
 
-  const getErrorMessage = (fieldName: string, message?: string) => {
-    const isTouched = fieldName in form.touched
-    const isInvalid = fieldName in form.errors
-
-    if (isTouched && isInvalid) return message
-    return ''
-  }
-
   const checkInputHasError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
     const hasError = isTouched && isInvalid
 
     return hasError
+  }
+
+  if (items.length === 0) {
+    return <Navigate to="/" />
   }
 
   return (
